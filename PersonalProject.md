@@ -50,3 +50,10 @@ Now that we have all of our prefabs set up, we can create a spawn manager to spa
 4. Right-click on your Assets folder > **Export Package** then save a new version in your **Backups** folder.
 
 By the end of this step, objects should be spawned automatically from the apprepriate location.
+
+## Replace all primitives with new asset
+
+1. Drag the Player object into the "Prefabs" folder to make it a prefab, then double-click on it to open the prefab editor
+2. Drag the asset you want into the hierachy to make it a **nested prefab** of the Player, then scale and position it so that it is around the same size and location.
+3. On the parent Player object it self, either edit the collider to be the size of the new asset or replace it with a different type of collider.
+4. Test to make sure it works, then uncheck the Mesh Renderer component of the primitive.
