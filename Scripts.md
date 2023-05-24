@@ -5,7 +5,7 @@ It's good practice to make all member variables those that belong to a class rat
 
 `Public` the variable can be accessed from outside the class, and is shown and editable on the componemt in the inspector. **A variable initialized in the `class` to a default value will be overridden by the value that's written in the inspector, but if it's set in functions such as `Start` and `Awake`, it will not be overridden by the inspector.**
 
-## Value & Reference
+## Data types 数据类型
 
 # Value
 
@@ -70,6 +70,8 @@ Reference type variables contain a memory address where the value is stored. If 
 
 `Input.GetKey/Down/Up(KeyCode)` returns true while the user holds down/presses down/releases the key.
 
+`List<>`
+
 `OnMouseDown(){}` called when the user has pressed the mouse button while over the collider.
 
 `Time.deltaTime` the interval in seconds from the last frame to the current one.
@@ -90,6 +92,10 @@ transform.Translate(Vector3.up * Time.deltaTime, Space.World);
 `.activeInHierarchy` defines whether the game object is active in the scene.
 
 `.activeSelf` the local active state of this game object. **A game object may be inactive because a parent is not active, even if this returns true.**
+
+`.AddForce(Vector, ForceMode. )` add a force to the rigid body.
+
+`.addTorque(Vector, ForceMode. )` adds a torque to the rigid body.
 
 `.enabled` enable or disable a component (`component.enabled = true` or `component.enabled = false`). **Scripts are also components.**
 
