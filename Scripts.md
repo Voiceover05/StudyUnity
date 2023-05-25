@@ -1,9 +1,17 @@
 ## Access modifiers 访问修饰符
 It's good practice to make all member variables those that belong to a class rather than a function private, unless they need to be publiv for a specific reason.
 
-`Private` the **default** access modifier for any variable that doesn't have it specified, the variable can only be editd from whithin the class
+`const` declares a constant field or local constant. Constant fields and locals aren't variables and may not be modified. **Only primitive or "built-in" C# types (e.g. int, string, double) are allowed to be declared `const`.**
 
-`Public` the variable can be accessed from outside the class, and is shown and editable on the componemt in the inspector. **A variable initialized in the `class` to a default value will be overridden by the value that's written in the inspector, but if it's set in functions such as `Start` and `Awake`, it will not be overridden by the inspector.**
+`private` the **default** access modifier for any variable that doesn't have it specified, the variable can only be editd from whithin the class
+
+`protected` the variable is only accessable by the class they belong to and it's subclasses.
+
+`public` the variable can be accessed from outside the class, and is shown and editable on the componemt in the inspector. **A variable initialized in the `class` to a default value will be overridden by the value that's written in the inspector, but if it's set in functions such as `Start` and `Awake`, it will not be overridden by the inspector.**
+
+`readonly` indicates that assignment to the field can only occur as part of the declaration or in a constructor in the same class. This means that a `readonly` variable can  have different values for different constructors in the same class.
+
+`static` declares a static member, which belongs to the type itself rather than to a sppecific object.
 
 ## Data types 数据类型
 
@@ -28,11 +36,13 @@ Reference type variables contain a memory address where the value is stored. If 
   - `Transform`
   - `GameObject`
 
-## Class
+## Event function
 
 `Awakez(){}` called first **even if the script component is not enabled**, and is best used for setting up any references between scripts and initialization. Only be called once in the lifetime of a script attached to an object, cannot repeat by disabling and re-enabling a script.
 
 `FixedUpdate(){}` called on a regular timeline and will have the same time between calls. As such, anything that affects a rigid body, should be executed in `FixedUpdate` rather than `Update`. When scripting physics in the `FixedUpdate` loop, it's good practice to use forces for movement.
+
+`LateUpdate(){}` called every frame after all `Update` Functions have been called.
 
 `Start(){}` called after `Awake`, immediately before the first update, but only if the script component is enabled. This allows you to delay any part your initialization code until it's really needed. Only be called once in the lifetime of a script attached to an object, cannot repeat by disabling and re-enabling a script.
 
@@ -100,3 +110,5 @@ transform.Translate(Vector3.up * Time.deltaTime, Space.World);
 `.enabled` enable or disable a component (`component.enabled = true` or `component.enabled = false`). **Scripts are also components.**
 
 `.SetActive()` activate or deactivate an object (`gameObject.setActive(true)` or `gameObject.setActive(false)`).
+
+`[SerializeField]` forces Unity to serialize a private field.
